@@ -1,4 +1,13 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 export default function LoginSection() {
+      const router = useRouter();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault(); // prevent form reload
+    router.push("/visa");
+  };
   return (
     <main className="py-8 md:py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row">
@@ -17,7 +26,7 @@ export default function LoginSection() {
             You've been redirected here so you can log in with RealMe
           </p>
 
-          <form className="space-y-4 max-w-[480px]">
+          <form className="space-y-4 max-w-[480px]" onSubmit={handleLogin}>
             <input
               type="text"
               placeholder="Username"
