@@ -1,4 +1,13 @@
+"use client";
+  
+import { useRouter } from "next/navigation";
 export default function VisaContent() {
+          const router = useRouter();
+  
+    const handleCheckVisa = (e: React.FormEvent) => {
+      e.preventDefault(); // prevent form reload
+      router.push("/visa-verification");
+    };
   return (
     <div className="flex justify-center">
       <div className="max-w-6xl w-full flex flex-col md:flex-row">
@@ -69,7 +78,7 @@ export default function VisaContent() {
           </div>
 
           {/* FORM */}
-<form className="space-y-4">
+<form className="space-y-4" onSubmit={handleCheckVisa}>
 
   <div className="grid grid-cols-1 sm:grid-cols-[180px_auto] items-start sm:items-center gap-y-2 gap-x-4">
 
