@@ -1,5 +1,23 @@
-export default function VisaVerification() {
+"use client";
 
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+export default function VisaVerification() {
+    const [user, setUser] = useState("");
+const [visaData, setVisaData] = useState<any>(null);
+
+  useEffect(() => {
+  const storedUser = localStorage.getItem("loggedInUser");
+  const storedData = localStorage.getItem("visaFormData");
+  if (storedData) {
+    setVisaData(JSON.parse(storedData));
+  }
+      if (storedUser) {
+      setUser(storedUser.toUpperCase());
+    }
+}, []);
+  const router = useRouter();
   return (
     <div className="shadow-xl">
     
@@ -35,18 +53,22 @@ export default function VisaVerification() {
           {/* Acting / Logged In */}
           <div className="flex flex-col sm:flex-row justify-between gap-4 mb-6">
             <div className="border border-gray-300 px-4 py-3 bg-gray-50 flex-1 text-xs">
-              Acting for:{" "}
+              Acting for:
               <span className="font-semibold text-gray-800">
                 Visa Verification Service
               </span>
             </div>
 
             <div className="border border-gray-300 px-4 py-3 bg-gray-50 flex-1 text-xs sm:text-right">
-              Logged in as:{" "}
+              Logged in as:
               <span className="font-semibold text-gray-800">
-                SRITHARAN MYLVAGANAM
+                {user}
               </span>
-              <button className="ml-2 text-blue-600 hover:underline">
+              <button className="ml-2 text-blue-600 hover:underline"
+                onClick={() => {
+    localStorage.removeItem("loggedInUser");
+    router.push("/");
+  }}>
                 logout
               </button>
             </div>
@@ -96,34 +118,34 @@ export default function VisaVerification() {
 <div className="grid grid-cols-1 sm:grid-cols-4 gap-y-2 gap-x-6 text-sm mb-6">
 
   <div className="text-gray-600">Family, First Name</div>
-  <div className="text-gray-900">Singh, Aditya</div>
+  <div className="text-gray-900">{visaData?.familyName}</div>
   <div className="text-gray-600">Visa Type</div>
   <div className="text-gray-900">Work</div>
 
   <div className="text-gray-600">Date of Birth</div>
-  <div className="text-gray-900">01/10/2004</div>
+  <div className="text-gray-900">{visaData?.dob}</div>
   <div className="text-gray-600">Visa Start Date</div>
-  <div className="text-gray-900">23/10/24</div>
+  <div className="text-gray-900">{visaData?.visaStartDate}</div>
 
   <div className="text-gray-600">Gender</div>
-  <div className="text-gray-900">M</div>
+  <div className="text-gray-900">{visaData?.gender}</div>
   <div className="text-gray-600">First Entry Before</div>
   <div className="text-gray-900">Not applicable</div>
 
   <div className="text-gray-600">Passport Nationality</div>
-  <div className="text-gray-900">India</div>
+  <div className="text-gray-900">{visaData?.nationality}</div>
   <div className="text-gray-600">Number of Entries</div>
   <div className="text-gray-900">Multiple</div>
 
   <div className="text-gray-600">Passport Number</div>
-  <div className="text-gray-900">W6459003</div>
+  <div className="text-gray-900">{visaData?.passportNumber}</div>
   <div className="text-gray-600">Expiry Date Travel</div>
-  <div className="text-gray-900">22/10/29</div>
+  <div className="text-gray-900">2026-02-10</div>
 
   <div className="text-gray-600">INZ Client Number</div>
   <div className="text-gray-900">79965248</div>
   <div className="text-gray-600">Visa Expiry</div>
-  <div className="text-gray-900">22/10/29</div>
+  <div className="text-gray-900">2026-02-10</div>
 
 <div>
 

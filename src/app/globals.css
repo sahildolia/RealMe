@@ -1,1 +1,13 @@
 @import "tailwindcss";
+/* Hide default calendar icon in Chrome, Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
+}
+
+/* Hide default icon in Firefox */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}

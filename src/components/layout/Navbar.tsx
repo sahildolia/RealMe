@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Navbar() {
 return (
   <div className="bg-black text-white">
-    <div className="max-w-6xl mx-auto px-8 py-4 flex justify-between items-center">
+    <div className="max-w-6xl mx-auto py-2 flex justify-between items-center">
 
       <Image
         src="/RealMe_logo.png"
