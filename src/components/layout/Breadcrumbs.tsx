@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
               {item.href ? (
                 <a
                   href={item.href}
-                  className="text-blue-600 hover:underline cursor-pointer"
+                  className="underline cursor-pointer"
                 >
                   {item.label}
                 </a>

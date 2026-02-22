@@ -11,3 +11,6 @@ input[type="date"] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
+.blue_txt_clr{
+  color: lab(31 -3.45 -43.84);
+}
