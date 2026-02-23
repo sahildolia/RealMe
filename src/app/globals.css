@@ -12,5 +12,30 @@ input[type="date"] {
   -moz-appearance: textfield;
 }
 .blue_txt_clr{
-  color: lab(31 -3.45 -43.84);
+  color: #004d8e;
+}
+@media print {
+
+  /* Hide everything */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only visa result */
+  #visa-result,
+  #visa-result * {
+    visibility: visible;
+  }
+
+  #visa-result {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* Hide download button in print */
+  button {
+    display: none !important;
+  }
 }

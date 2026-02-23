@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
 export default function VisaVerification() {
   const [user, setUser] = useState("");
   const [visaData, setVisaData] = useState<any>(null);
@@ -18,6 +17,9 @@ export default function VisaVerification() {
     }
   }, []);
   const router = useRouter();
+const handleDownload = () => {
+  window.print();
+};
   return (
     <div className="shadow-xl">
 
@@ -120,6 +122,7 @@ export default function VisaVerification() {
                 any visa they hold may be subject to the grant of entry permission.
               </p>
 
+<div id="visa-result">
               {/* Visa Details */}
               <h3 className="font-semibold text-gray-800 mb-3">
                 Visa Details
@@ -169,6 +172,7 @@ export default function VisaVerification() {
                 </div>
 
               </div>
+              </div>
 
 
               {/* Enquiry Date */}
@@ -189,7 +193,7 @@ export default function VisaVerification() {
               </p>
 
               {/* Download Button */}
-              <button className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium">
+              <button  onClick={handleDownload} className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium">
                 Download Result
               </button>
 
@@ -205,31 +209,42 @@ export default function VisaVerification() {
         </div>
       </div>
       {/* Bottom Links Section */}
-      <div className="pt-4 pb-4 border-t border-gray-200">
-        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-600">
-          <span className="font-semibold">newzealand.govt.nz</span>
+{/* Bottom Links Section */}
+<div className="pt-4 pb-4 border-t border-gray-200">
+  <div className="flex flex-wrap items-center justify-between text-xs text-gray-600">
 
-          <span className="text-gray-400">|</span>
-          <a href="#" className="hover:underline">
-            About us
-          </a>
+    {/* Left Side */}
+    <span className="font-bold text-sm">
+      newzealand.govt.nz
+    </span>
 
-          <span className="text-gray-400">|</span>
-          <a href="#" className="hover:underline">
-            Legal
-          </a>
+    {/* Right Side */}
+    <div className="flex flex-wrap items-center gap-2">
+      <a href="#" className="hover:underline">
+        About us
+      </a>
 
-          <span className="text-gray-400">|</span>
-          <a href="#" className="hover:underline">
-            Complaints
-          </a>
+      <span className="text-gray-400">|</span>
 
-          <span className="text-gray-400">|</span>
-          <a href="#" className="hover:underline">
-            Terms & Conditions
-          </a>
-        </div>
-      </div>
+      <a href="#" className="hover:underline">
+        Legal
+      </a>
+
+      <span className="text-gray-400">|</span>
+
+      <a href="#" className="hover:underline">
+        Complaints
+      </a>
+
+      <span className="text-gray-400">|</span>
+
+      <a href="#" className="hover:underline">
+        Terms & Conditions
+      </a>
+    </div>
+
+  </div>
+</div>
     </div>
   );
 }
