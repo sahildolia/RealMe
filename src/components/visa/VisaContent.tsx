@@ -272,7 +272,7 @@ const handleCheckVisa = (e: React.FormEvent) => {
           {/* Bottom Links Section */}
           <div className="mt-10 pt-8 border-t border-gray-200">
             <div className="flex flex-wrap items-center gap-2 text-xs text-gray-600">
-              <span className="font-semibold">newzealand.govt.nz</span>
+              <span className="font-bold text-sm">newzealand.govt.nz</span>
 
               <span className="text-gray-400">|</span>
               <a href="#" className="hover:underline">
