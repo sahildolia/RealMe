@@ -32,7 +32,7 @@ const handleDownload = () => {
               VisaView
             </h2>
 
-            <nav className="space-y-3 text-xs">
+            <nav className="space-y-3 text-xs gry_clr">
               {[
                 "Register Organisation",
                 "Verify Visa Record",
@@ -53,7 +53,7 @@ const handleDownload = () => {
                     </svg>
 
                   </span>
-                  <span>{item}</span>
+                  <span className="gry_clr">{item}</span>
                 </div>
               ))}
             </nav>

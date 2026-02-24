@@ -54,7 +54,7 @@ const handleCheckVisa = (e: React.FormEvent) => {
             VisaView
           </h2>
 
-          <nav className="space-y-3 text-xs">
+          <nav className="space-y-3 text-xs gry_clr">
             {[
               "Register Organisation",
               "Verify Visa Record",
@@ -65,7 +65,7 @@ const handleCheckVisa = (e: React.FormEvent) => {
                 className="flex items-center gap-2 text-gray-900 cursor-pointer hover:underline"
               >
                 <span>›</span>
-                <span>{item}</span>
+                <span className="gry_clr">{item}</span>
               </div>
             ))}
           </nav>
