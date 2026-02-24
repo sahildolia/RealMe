@@ -21,7 +21,7 @@ const handleDownload = () => {
   window.print();
 };
   return (
-    <div className="shadow-xl">
+    <div className="shadow-2xl">
 
       <div className="flex justify-center ">
         <div className="max-w-6xl w-full flex flex-col md:flex-row">
@@ -211,10 +211,10 @@ const handleDownload = () => {
       {/* Bottom Links Section */}
 {/* Bottom Links Section */}
 <div className="pt-4 pb-4 border-t border-gray-200">
-  <div className="flex flex-wrap items-center justify-between text-xs text-gray-600">
+  <div className="flex flex-wrap items-center  text-xs text-gray-600">
 
     {/* Left Side */}
-    <span className="font-bold text-sm">
+    <span className="font-bold text-sm w-52 ps-1">
       newzealand.govt.nz
     </span>
 
