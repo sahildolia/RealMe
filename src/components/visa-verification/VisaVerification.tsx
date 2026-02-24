@@ -214,7 +214,7 @@ const handleDownload = () => {
   <div className="flex flex-wrap items-center  text-xs text-gray-600">
 
     {/* Left Side */}
-    <span className="font-bold text-sm w-52 ps-1">
+    <span className="font-bold text-sm w-52 ps-6">
       newzealand.govt.nz
     </span>
 
