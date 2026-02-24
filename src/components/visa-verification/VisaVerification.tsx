@@ -122,7 +122,8 @@ const handleDownload = () => {
                 any visa they hold may be subject to the grant of entry permission.
               </p>
 
-<div id="visa-result">
+<div id="visa-result" className="mt-5">
+  <br /><br /> 
               {/* Visa Details */}
               <h3 className="font-semibold text-gray-800 mb-3">
                 Visa Details
