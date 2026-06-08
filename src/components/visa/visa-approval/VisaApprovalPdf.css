@@ -1,0 +1,58 @@
+.pdf-page {
+  width: 794px;
+  min-height: 1123px;
+  background: #fff;
+  position: relative;
+  padding: 70px 80px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.page-break {
+  page-break-after: always;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sub-heading {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.normal-text {
+  font-size: 13px;
+  line-height: 1.35;
+}
+ /* .pdfPage {
+  width: 794px;
+  min-height: 1123px;
+  background: #fff;
+  position: relative;
+  padding: 70px 80px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.pageBreak {
+  page-break-after: always;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.subHeading {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.normalText {
+  font-size: 13px;
+  line-height: 1.35;
+} */

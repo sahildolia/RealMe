@@ -2,10 +2,20 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { usePDF } from "react-to-pdf";
+import VisaApprovalPdf from "../visa/visa-approval/VisaApprovalPdf";
 export default function VisaVerification() {
   const [user, setUser] = useState("");
   const [visaData, setVisaData] = useState<any>(null);
 
+const { toPDF, targetRef } = usePDF({
+  filename: "visa-approval.pdf",
+  page: {
+    margin: 10,
+    format: "a4",
+    orientation: "portrait",
+  },
+});
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     const storedData = localStorage.getItem("visaFormData");
@@ -193,9 +203,38 @@ const handleDownload = () => {
               </p>
 
               {/* Download Button */}
-              <button  onClick={handleDownload} className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium">
+              {/* <button  onClick={handleDownload} className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium">
                 Download Result
-              </button>
+              </button> */}
+
+{/* <button
+  onClick={() =>
+    
+  { 
+    console.log("visaData", visaData);
+    toPDF()}
+  
+  }
+  className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium"
+>
+  Download Result
+</button> */}
+<button
+  onClick={async () => {
+    try {
+      console.log("targetRef", targetRef.current);
+
+      await toPDF();
+
+      console.log("PDF SUCCESS");
+    } catch (error) {
+      console.error("PDF ERROR", error);
+    }
+  }}
+  className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium"
+>
+  Download Result
+</button>
 
               {/* Questions Link */}
               <div className="mt-4">
@@ -245,6 +284,22 @@ const handleDownload = () => {
 
   </div>
 </div>
+
+<div
+  style={{
+    position: "fixed",
+    top: 0,
+    left: 0,
+    opacity: 0,
+    zIndex: -1,
+    pointerEvents: "none",
+  }}
+>
+<div ref={targetRef}>
+  <VisaApprovalPdf visaData={visaData} />
+</div>
+</div>
+
     </div>
   );
 }
