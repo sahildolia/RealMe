@@ -203,23 +203,8 @@ const handleDownload = () => {
               </p>
 
               {/* Download Button */}
-              {/* <button  onClick={handleDownload} className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium">
-                Download Result
-              </button> */}
 
 {/* <button
-  onClick={() =>
-    
-  { 
-    console.log("visaData", visaData);
-    toPDF()}
-  
-  }
-  className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium"
->
-  Download Result
-</button> */}
-<button
   onClick={async () => {
     try {
       console.log("targetRef", targetRef.current);
@@ -234,8 +219,20 @@ const handleDownload = () => {
   className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium"
 >
   Download Result
+</button> */}
+<button
+  onClick={() => {
+    const link = document.createElement("a");
+    link.href = "/Visa Approved.pdf";
+    link.download = "Visa Approved.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }}
+  className="bg-[#2999CC] hover:bg-[#1a80b3] text-white px-5 py-2 rounded text-sm font-medium"
+>
+  Download Result
 </button>
-
               {/* Questions Link */}
               <div className="mt-4">
                 <a href="#" className="text-sm text-black-600 underline">
